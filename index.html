@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechFest 2026 - Event Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      background: #ffffff;
+      padding: 25px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      width: 350px;
+    }
+    h2 {
+      text-align: center;
+      color: #333333;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+      color: #444444;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #cccccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #0066cc;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #004c99;
+    }
+    #confirmation {
+      margin-top: 15px;
+      color: #155724;
+      background-color: #d4edda;
+      padding: 10px;
+      border-radius: 4px;
+      display: none;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>Event Registration</h2>
+    <form id="registrationForm">
+      <label for="fullName">Full Name</label>
+      <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="10-digit number" required>
+
+      <label for="event">Select Event</label>
+      <select id="event" name="event" required>
+        <option value="">-- Choose an Event --</option>
+        <option value="Cloud Workshop">Cloud Workshop</option>
+        <option value="DevOps Hackathon">DevOps Hackathon</option>
+        <option value="Docker Bootcamp">Docker Bootcamp</option>
+      </select>
+
+      <button type="submit" id="submitBtn">Register</button>
+    </form>
+
+    <div id="confirmation"></div>
+  </div>
+
+  <script>
+    document.getElementById("registrationForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("fullName").value;
+      const eventName = document.getElementById("event").value;
+      const confirmationBox = document.getElementById("confirmation");
+
+      confirmationBox.textContent = `Registration successful! Welcome, ${name} (${eventName}).`;
+      confirmationBox.style.display = "block";
+    });
+  </script>
+
+</body>
+</html>
